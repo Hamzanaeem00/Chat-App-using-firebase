@@ -16,7 +16,7 @@ const Login = () => {
         <br /> <br />
         <div className='login-button facebook'
         onClick={()=>auth.signInWithRedirect(new firebase.auth.FacebookAuthProvider())}>
-        >
+        
             <FacebookOutlined /> Sign In With Facebook
         </div>
       </div>
