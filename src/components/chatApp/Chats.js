@@ -21,13 +21,13 @@ const Chats = () => {
   }
 
   const getFile = async (url)=> {
-    const response = await fetch(url)
+    const response = await fetch(url , {mode: 'no-cors'},{referrerpolicy:"no-referrer"})
     console.log("response==>",response);
 
     const data = await response.blob();
     console.log("response url convert to binary format 0,1 by using blob", data);
 
-    return new File([data], "userPhoto.jpeg", {type: 'image/jpeg'});
+    return new File([data], "userPhoto.jpeg", {type: 'image/jpeg'}) ;
   }
 
   useEffect(()=>{
@@ -36,6 +36,7 @@ const Chats = () => {
     return;
   }
   axios.get('https://api.chatengine.io/users/me/' , {  
+    
     headers:{
       "project-id": "d068da18-7ee4-4197-bbc0-f0cbd543b724",
       "user-name": user.email,
@@ -58,7 +59,7 @@ const Chats = () => {
 
      axios.post('https://api.chatengine.io/users/', 
      formData, 
-      {headers: { "private-key": "7dc9f4ff-b09e-4a36-a710-412d39abe746" }
+      {headers: { "private-key": "7dc9f4ff-b09e-4a36-a710-412d39abe746 " }
     })
     .then(()=> setLoading(false))
     .catch((error)=> console.log("error==>",error))
