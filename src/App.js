@@ -1,12 +1,12 @@
-import React from "react"
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom"
-import { AuthProvider } from "../src/contexts/AuthContext"
-import Chats from "./components/chatApp/Chats"
-import Login from "./components/Login/Login"
+import React from "react";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { AuthProvider } from "../src/contexts/AuthContext";
+import Chats from "./components/chatApp/Chats";
+import Login from "./components/Login/Login";
 
 function App() {
   return (
-    <div style={{ fontFamily: 'Avenir' }}>
+    <div style={{ fontFamily: "Avenir" }}>
       <Router>
         <AuthProvider>
           <Switch>
@@ -16,7 +16,7 @@ function App() {
         </AuthProvider>
       </Router>
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
