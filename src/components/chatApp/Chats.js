@@ -12,7 +12,7 @@ export const Chats = () => {
 
   const useAuth = useContext(AuthContext);
   const { user } = useAuth;
-  console.log(user);
+  console.log( "user==>",user.providerData);
 
   const handleLogout = async () => {
     await auth.signOut();
@@ -76,7 +76,7 @@ useEffect(() => {
       return;
     }
     try {
-      const  data  =  axios.get("https://api.chatengine.io/users/me/", {
+      const  data  =  axios.get("https://api.chatengine.io/users/me", {
         headers: {
           // "project-id": "d068da18-7ee4-4197-bbc0-f0cbd543b724",
           "project-id": process.env.REACT_APP_CHAT_ENGINE_ID,
@@ -93,7 +93,7 @@ useEffect(() => {
         const formData = new FormData();
         formData.append("email", user.email);
         formData.append("username", user.email);
-        formData.append("usersecret", user.uid);
+        formData.append("secret", user.uid);
         console.log("formData===>", formData);
         
         // handle the case where the avatar is not defined
